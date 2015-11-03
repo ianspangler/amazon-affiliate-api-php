@@ -13,10 +13,11 @@ use App\lib\vendor\aws\AWSSignedRequest;
 class AmazonAssocHelper {
 	
 	//AMAZON AFFILIATE PROGRAM ACCESS -- sign into affiliate-program.amazon.com
-	const AMZ_ASSOC_TAG = 'envtut-20';
-	const AMZ_ASSOC_ACCESSKEY = '';  
-	const AMZ_ASSOC_SECRETKEY = '';  
+	const AMZ_ASSOC_TAG = 'your-affiliate-id';
 
+	//AWS credentials -- sign into aws.amazon.com
+	const AMZ_ASSOC_ACCESSKEY = 'YOUR_ACCESS_KEY';  
+	const AMZ_ASSOC_SECRETKEY = 'YOUR_SECRET_KEY';  
 
 	//Set the values for some of the parameters
 	private $operation = "ItemSearch";

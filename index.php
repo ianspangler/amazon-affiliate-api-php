@@ -7,10 +7,10 @@
 
 	$amzAssocHelper = new AmazonAssocHelper();
 	//$product_data = $amzAssocHelper->fetch_product_data("Envato Audiojungle TPU Case", "Electronics");
-	$product_data = $amzAssocHelper->fetch_product_data("Supergirl", "Books");
+	//$product_data = $amzAssocHelper->fetch_product_data("Supergirl", "Books");
+	$product_data = $amzAssocHelper->fetch_product_data("American Sniper", "Movies");
 
 	//print_r($product_data);
-	//echo "exists: ".array_key_exists("price", $product_data);
 	//exit;
 
 ?>
