@@ -1,0 +1,69 @@
+body {
+	font-family: Charcoal, sans-serif;
+	background: #191b1c;
+	font-size: 10px;
+}
+
+a {
+	text-decoration: none;
+	color: #EEE;
+}
+
+a:hover {
+	color: #c0e6f8;
+}
+
+.affiliate_wrap {
+	background: #303335;
+	margin: 20px;
+	padding: 20px;
+	width: 160px;
+}
+
+h2 {
+	color: #EEE;
+	font-size: 1.7em;
+	padding-top: 12px;
+	padding-bottom: 5px;
+	line-height: 1.3em;
+}
+
+img {
+	width: 100%;
+	height: auto;	
+	display: block;
+	border: 1px solid #393d3f;
+	background: #101010;
+}
+
+img:hover {
+	opacity: 0.9;
+}
+
+p {
+	color: #AAA;
+	padding: 10px 0;
+	font-size: 1.3em;
+}
+
+em {
+	color: #c0e6f8;
+
+}
+
+a.button {
+	padding: 10px;
+	margin-top: 14px;
+	color: #303335;
+	background: #febd69;
+	text-transform: uppercase; 
+	display: block;
+	font-size: 1.4em;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 2px;
+}
+
+a.button:hover {
+	background: #f3a847;
+}
