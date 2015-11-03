@@ -14,8 +14,8 @@ class AmazonAssocHelper {
 	
 	//AMAZON AFFILIATE PROGRAM ACCESS -- sign into affiliate-program.amazon.com
 	const AMZ_ASSOC_TAG = 'envtut-20';
-	const AMZ_ASSOC_ACCESSKEY = 'AKIAIQFKK7RJMRNMFNWA';  
-	const AMZ_ASSOC_SECRETKEY = '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'; 
+	const AMZ_ASSOC_ACCESSKEY = '';  
+	const AMZ_ASSOC_SECRETKEY = '';  
 
 
 	//Set the values for some of the parameters
