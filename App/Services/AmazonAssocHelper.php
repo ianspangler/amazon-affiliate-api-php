@@ -11,51 +11,55 @@ use App\lib\vendor\aws\AWSSignedRequest;
 
 
 class AmazonAssocHelper {
+
+	const AMZ_ASSOC_TAG = 'envtut-20';
+
+	const AMZ_ASSOC_ACCESSKEY = 'AKIAJILHUTAJ5MMQRJWA';  
+	const AMZ_ASSOC_SECRETKEY = 'UcOpXAN6ILj8ZEJtTrD2nGJgibi1TMD7bMb8cEr1';
 	
 	//AMAZON AFFILIATE PROGRAM ACCESS -- sign into affiliate-program.amazon.com
-	const AMZ_ASSOC_TAG = 'your-affiliate-id';
+	//const AMZ_ASSOC_TAG = 'your-affiliate-id';
 
 	//AWS credentials -- sign into aws.amazon.com
-	const AMZ_ASSOC_ACCESSKEY = 'YOUR_ACCESS_KEY';  
-	const AMZ_ASSOC_SECRETKEY = 'YOUR_SECRET_KEY';  
+	//const AMZ_ASSOC_ACCESSKEY = 'YOUR_ACCESS_KEY';  
+	//const AMZ_ASSOC_SECRETKEY = 'YOUR_SECRET_KEY';  
 
-	//Set the values for some of the parameters
-	private $operation = "ItemSearch";
-	private $version = "2013-08-01";
-	private $response_group = "Small,Images,OfferSummary";
+	//Set the values for some of the search parameters
+	private static $operation = "ItemSearch";
+	private static $version = "2013-08-01";
+	private static $response_group = "Small,Images,OfferSummary";
 
-	function __construct() {
+	protected function __construct() {
 
 	}
 
 	/**
-	* Fetches relevant product link from product API from keyphrase and category
+	* Fetches relevant product data in product API from keyphrase and category
 	* returns: array of data from the top result node
 	*/
-	public function fetch_product_data($keyphrase, $search_index) {
-		
-		$result_xml = $this->get_search_results($keyphrase, $search_index);
+	public static function fetch_product_data($keyphrase, $category) {
+	
+		$result_xml = self::get_search_results($keyphrase, $category);
 		
 		//return an array containing the item name, link, image, and price
-		return $this->get_top_result_data($result_xml);
+		return self::get_top_result_data($result_xml);
 	
 	}
 
 
 	/**
-	* Runs search with signed request on product API using keyphrase and category name
-	* returns: parsed XML object
+	* Runs search with signed request on product API using keyphrase and search index
+	* returns: XML object
 	*/
-	private function get_search_results($keyphrase, $search_index) {
+	private static function get_search_results($keyphrase, $search_index) {
 		
 		//Define the request
 		$params = array("SearchIndex"=>$search_index, //the category
 						"Title"=>$keyphrase, 
-						"Operation"=>$this->operation,
-						"ResponseGroup"=>$this->response_group);
+						"Operation"=>self::$operation,
+						"ResponseGroup"=>self::$response_group);
 		
-
-		$request = AWSSignedRequest::get_signed_request('com', $params, self::AMZ_ASSOC_ACCESSKEY, self::AMZ_ASSOC_SECRETKEY, self::AMZ_ASSOC_TAG, $this->version);
+		$request = AWSSignedRequest::get_signed_request('com', $params, self::AMZ_ASSOC_ACCESSKEY, self::AMZ_ASSOC_SECRETKEY, self::AMZ_ASSOC_TAG, self::$version);
 
 		$response = file_get_contents($request);
 		/*header('Content-type: application/xml');
@@ -70,10 +74,10 @@ class AmazonAssocHelper {
 	* Parses top result node, and its attributes, from XML object
 	* returns: array of product data
 	*/
-	private function get_top_result_data($xml) {
+	private static function get_top_result_data($xml) {
 
-		if (!empty($this->handle_errors($xml))) {
-			return array('error'=>$this->handle_errors($xml));
+		if (!empty(self::handle_errors($xml))) {
+			return array('error'=>self::handle_errors($xml));
 		}
 
 		//get the first result node
@@ -97,7 +101,7 @@ class AmazonAssocHelper {
 	* Checks for errors in the request/ result
 	* returns: array with message(s) describing the "error"
 	*/
-	private function handle_errors($xml) {
+	private static function handle_errors($xml) {
 
 		$errors_arr = array();
 

@@ -16,16 +16,16 @@ a:hover {
 .affiliate_wrap {
 	background: #303335;
 	margin: 20px;
-	padding: 20px;
+	padding: 15px;
 	width: 160px;
 }
 
 h2 {
 	color: #EEE;
-	font-size: 1.7em;
+	font-size: 1.8em;
 	padding-top: 12px;
-	padding-bottom: 5px;
-	line-height: 1.3em;
+	padding-bottom: 4px;
+	line-height: 1.2em;
 }
 
 img {
@@ -62,6 +62,13 @@ a.button {
 	font-weight: bold;
 	text-align: center;
 	border-radius: 2px;
+}
+
+a.button:before {
+	font-family: FontAwesome;
+	content: '\f07a';
+	color: #303335;
+	margin-right: 6px;
 }
 
 a.button:hover {
