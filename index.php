@@ -4,9 +4,6 @@
 
 	require_once getcwd() . '/App/app_global.php';
 
-	//$amzAssocHelper = new AmazonAssocHelper();
-	//$product_data = $amzAssocHelper->fetch_product_data("Envato Audiojungle TPU Case", "Electronics");
-
 	/**
 	*	Call the Product API by passing in the name of the product and the shopping category
 	*	("Books", "Movies", and "VideoGames" are examples -- see API documentation for full list)

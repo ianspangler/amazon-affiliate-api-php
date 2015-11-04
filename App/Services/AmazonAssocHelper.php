@@ -5,6 +5,8 @@ namespace App\Services;
 
 /*
 * Class to retrieve product data from Amazon affiliate program (product advertising) API 
+* Author: Ian Spangler
+* Date: 11/3/2015
 */
 
 use App\lib\vendor\aws\AWSSignedRequest;
@@ -12,17 +14,12 @@ use App\lib\vendor\aws\AWSSignedRequest;
 
 class AmazonAssocHelper {
 
-	const AMZ_ASSOC_TAG = 'envtut-20';
-
-	const AMZ_ASSOC_ACCESSKEY = 'AKIAJILHUTAJ5MMQRJWA';  
-	const AMZ_ASSOC_SECRETKEY = 'UcOpXAN6ILj8ZEJtTrD2nGJgibi1TMD7bMb8cEr1';
-	
 	//AMAZON AFFILIATE PROGRAM ACCESS -- sign into affiliate-program.amazon.com
-	//const AMZ_ASSOC_TAG = 'your-affiliate-id';
+	const AMZ_ASSOC_TAG = 'your-affiliate-id';
 
 	//AWS credentials -- sign into aws.amazon.com
-	//const AMZ_ASSOC_ACCESSKEY = 'YOUR_ACCESS_KEY';  
-	//const AMZ_ASSOC_SECRETKEY = 'YOUR_SECRET_KEY';  
+	const AMZ_ASSOC_ACCESSKEY = 'YOUR_ACCESS_KEY';  
+	const AMZ_ASSOC_SECRETKEY = 'YOUR_SECRET_KEY';  
 
 	//Set the values for some of the search parameters
 	private static $operation = "ItemSearch";
